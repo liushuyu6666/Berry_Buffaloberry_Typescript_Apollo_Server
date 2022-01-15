@@ -1,0 +1,13 @@
+overwrite: true
+schema: './src/models/graphql/schema.ts'
+
+require: ts-node/register/transpile-only # without this line, you will get an error: Cannot use import statement outside a module
+generates:
+  src/models/graphql/generated/codegen.ts:
+    config:
+      useIndexSignature: true
+      # need to create an index.ts in the context
+      contextType: ../../../context#GraphqlContext # details in the typescript-resolvers https://www.graphql-code-generator.com/plugins/typescript-resolvers
+    plugins:
+      - typescript
+      - typescript-resolvers

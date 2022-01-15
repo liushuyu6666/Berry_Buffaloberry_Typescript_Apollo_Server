@@ -1,0 +1,27 @@
+{
+  "name": "buffaloberry",
+  "version": "1.0.0",
+  "description": "the template of all Apollo Typescript project",
+  "private": true,
+  "main": "index.js",
+  "author": "shuyu",
+  "license": "UNLICENSED",
+  "devDependencies": {
+    "@graphql-codegen/cli": "^2.3.1",
+    "@graphql-codegen/typescript": "^2.4.2",
+    "@graphql-codegen/typescript-graphql-request": "^4.3.3",
+    "@graphql-codegen/typescript-operations": "^2.2.2",
+    "@graphql-codegen/typescript-resolvers": "^2.4.3",
+    "typescript": "^4.5.4"
+  },
+  "scripts": {
+    "start": "yarn tsc && node ./bin/index.js",
+    "build:graphql:codegen": "graphql-codegen -c ./codegen.yml"
+  },
+  "dependencies": {
+    "@graphql-tools/schema": "^8.3.1",
+    "apollo-server": "^3.6.1",
+    "graphql": "^16.2.0",
+    "graphql-tag": "^2.12.6"
+  }
+}
