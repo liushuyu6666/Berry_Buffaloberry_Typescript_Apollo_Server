@@ -7,6 +7,6 @@ export default gql`
   }
 
   type Query {
-    books: [Book]
+    getBooks: [Book!]!
   }
 `

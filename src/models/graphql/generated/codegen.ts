@@ -22,7 +22,7 @@ export type Book = {
 
 export type Query = {
   __typename?: 'Query';
-  books?: Maybe<Array<Maybe<Book>>>;
+  getBooks: Array<Book>;
 };
 
 export type WithIndex<TObject> = TObject & Record<string, any>;
@@ -116,7 +116,7 @@ export type BookResolvers<ContextType = GraphqlContext, ParentType extends Resol
 }>;
 
 export type QueryResolvers<ContextType = GraphqlContext, ParentType extends ResolversParentTypes['Query'] = ResolversParentTypes['Query']> = ResolversObject<{
-  books?: Resolver<Maybe<Array<Maybe<ResolversTypes['Book']>>>, ParentType, ContextType>;
+  getBooks?: Resolver<Array<ResolversTypes['Book']>, ParentType, ContextType>;
 }>;
 
 export type Resolvers<ContextType = GraphqlContext> = ResolversObject<{
