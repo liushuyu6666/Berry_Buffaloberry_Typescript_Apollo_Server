@@ -133,3 +133,6 @@ dist
 # customer
 .ds_Store
 bin/
+
+# configuration
+*.env.*
