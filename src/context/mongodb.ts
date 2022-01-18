@@ -8,11 +8,15 @@ export type MongoCallbackFn<T> = (
 
 type DBOperation = <T>(callback: MongoCallbackFn<T>) => Promise<T>;
 
-export default function createDBOperations(mongoURL: string): DBOperation {
+export default function createDBOperations(
+    // mongoURL: string
+  ): DBOperation {
   return async (callback) => {
-    const client = await MongoClient.connect(mongoURL, {
-      
+    console.log('hello');
+    const client = await MongoClient.connect('mongodb://localhost:27017/buffalo', {
+  
     });
+    console.log(`client is ${client}`);
     const db = wrapDB(client.db());
     try {
       return await callback(db, client);
@@ -21,7 +25,7 @@ export default function createDBOperations(mongoURL: string): DBOperation {
         if (e) {
           console.error('Failed to close Mongodb', e);
         }
-      })
+      });
     }
-  }
+  };
 }
