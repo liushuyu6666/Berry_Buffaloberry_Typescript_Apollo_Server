@@ -3,8 +3,15 @@ import getBooks from "../services/getBooks";
 
 const NAME = 'getBooks';
 
-const getBooksResolver: QueryResolvers[typeof NAME] = async () => {
-  const ret = await getBooks();
+const getBooksResolver: QueryResolvers[typeof NAME] = async (
+  _,
+  args,
+  context
+) => {
+  if (args) {
+    
+  }
+  const ret = await getBooks(context);
   return ret.books;
 };
 
