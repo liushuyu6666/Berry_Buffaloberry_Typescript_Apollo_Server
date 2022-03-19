@@ -10,10 +10,8 @@ export type Secrets = Record<Keys, string>;
 // TODO: 2, more secrets
 export default async function(): Promise<Secrets> {
   // type OptionalSecrets = Partial<Secrets>;
-  console.log(`process.env is ${process.env}`);
   const secrets = KEY_BASE.reduce<Secrets>((acc, key) => {
     const temp = process.env[key];
-    console.log(`temp is ${temp}`);
     if(temp) {
       acc[key] = temp;
     }

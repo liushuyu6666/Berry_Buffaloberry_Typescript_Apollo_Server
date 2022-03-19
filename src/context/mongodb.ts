@@ -12,11 +12,7 @@ export default function createDBOperations(
     // mongoURL: string
   ): DBOperation {
   return async (callback) => {
-    console.log('hello');
-    const client = await MongoClient.connect('mongodb://localhost:27017/buffalo', {
-  
-    });
-    console.log(`client is ${client}`);
+    const client = await MongoClient.connect("mongodb://127.0.0.1:27017/buffalo");
     const db = wrapDB(client.db());
     try {
       return await callback(db, client);

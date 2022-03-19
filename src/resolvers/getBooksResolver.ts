@@ -9,7 +9,7 @@ const getBooksResolver: QueryResolvers[typeof NAME] = async (
   context
 ) => {
   if (args) {
-    console.log('in resolver');
+    
   }
   const ret = await getBooks(context);
   return ret.books;
